@@ -12,6 +12,6 @@ Tags:
               - @playlists (playlist api calls)
               - @failTest (failing tests)
               
-Bult with:
+Built with:
               - eclipse/maven
                    
