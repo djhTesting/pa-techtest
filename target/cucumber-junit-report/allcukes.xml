@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="16" time="7.68406">
+<testcase classname="Playlists tests" name="Playlists songs are returned in Playlists list" time="1.046478">
+<system-out><![CDATA[Given multiple Playlists exist in the Daily Songs database..................passed
+When the list of Playlists is requested.....................................passed
+Then all the Playlists are returned in the list.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="An individual Playlist can be requested with an Id" time="0.434525">
+<system-out><![CDATA[Given a Playlist exists in the Daily Songs database with a known Id.........passed
+When the Playlist is requested using the Id.................................passed
+Then the details for the Playlist are returned..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="Song details in Playlist are hidden where publishDate is in future" time="0.694682">
+<system-out><![CDATA[Given a Playlist exists containing Songs with past and future publishDates..passed
+When the Playlist is requested using the Id.................................passed
+Then the Song details are hidden for Songs with a future publishDate........passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="An request for an individual Playlist with an invalid Id fails correctly" time="0.084391">
+<system-out><![CDATA[When a Playlist is requested with an invalid Id.............................passed
+Then an error message is returned for the invalid Id........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="A Playlist can be added to Daily Songs" time="0.383331">
+<system-out><![CDATA[When a Playlist is added to Daily Songs via the API.........................passed
+Then the individual Playlist can be returned from the API...................passed
+And the Playlist is returned in the Playlist list...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="A specified number of songs can be added to a new Playlist" time="0.507972">
+<system-out><![CDATA[Given at least 20 songs exist in the Daily Songs database...................passed
+When 5 Songs are added to a new Playlist....................................passed
+Then a No Content message is returned.......................................passed
+And the correct Songs are stored in the Playlist............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="A specified number of songs can be added to an existing Playlist" time="0.741548">
+<system-out><![CDATA[Given at least 20 songs exist in the Daily Songs database...................passed
+When 5 Songs are added to an existing Playlist..............................passed
+Then a No Content message is returned.......................................passed
+And the correct Songs are stored in the Playlist............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="The functionality to remove Songs from a Playlist is not implemented" time="0.643044">
+<system-out><![CDATA[Given at least 20 songs exist in the Daily Songs database...................passed
+When 5 Songs are added to a new Playlist and a Song removal is requested....passed
+Then a Not Implemented message is returned..................................passed
+And the correct Songs are stored in the Playlist............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Playlists tests" name="A Playlist is updated with an invalid command" time="0.716019">
+<system-out><![CDATA[Given at least 20 songs exist in the Daily Songs database...................passed
+When 5 Songs are added to a new Playlist and a invalid command is included..passed
+Then a Bad Content message is returned......................................passed
+And no Songs are stored in the Playlist.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="All songs are returned in Songs list" time="0.523878">
+<system-out><![CDATA[Given multiple songs exist in the Daily Songs database......................passed
+When the list of Songs is requested.........................................passed
+Then all the Songs are returned in the list.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="An individual song can be requested with an Id" time="0.657151">
+<system-out><![CDATA[Given a song exists in the Daily Songs database with a known Id.............passed
+When a song is requested using the Id.......................................passed
+Then the details for the Song are returned..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="An request for an individual song with an invalid Id fails correctly" time="0.083673">
+<system-out><![CDATA[When a song is requested with an invalid Id.................................passed
+Then an error message is returned for the invalid Id........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="A Song can be added to Daily Songs" time="0.399427">
+<system-out><![CDATA[When a song is added to Daily Songs via the API.............................passed
+Then the individual Song can be returned from the API.......................passed
+And the Song is returned in the Song list...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="A Song cannot be added to Daily Songs with invalid data" time="0.078962">
+<system-out><![CDATA[When a song is added to Daily Songs via the API with invalid data...........passed
+Then an error message is returned for the invalid data......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="The functionality to update a Song is not implemented" time="0.081939">
+<system-out><![CDATA[When a Song is updated......................................................passed
+Then a Not Implemented message is returned..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Songs tests" name="An individual song can be deleted" time="0.60704">
+<system-out><![CDATA[Given a song exists in the Daily Songs database with a known Id.............passed
+When the song is deleted using the Id.......................................passed
+Then a No Content message is returned.......................................passed
+And the song is removed from Daily Songs....................................passed
+]]></system-out>
+</testcase>
+</testsuite>
