@@ -8,8 +8,8 @@ Execution:
               - use RunCukesTests.java (techtest.bdd.run)
               
 Tags:
-              - @songs (song/video api calls)
-              - @playlists (playlist api calls)
+              - @songs (Song/Video api calls)
+              - @playlists (Playlist api calls)
               - @failTest (failing tests)
               
 Built with:
