@@ -2,7 +2,7 @@ PRESS ASSOCIATION TECHNICAL TEST - D HOCKEY
 
 Dependencies added:
               - picocontainer (for dependency injection)
-              - Jackson (for json handling)
+              - Jackson (for JSON handling)
               
 Execution:
               - use RunCukesTests.java (techtest.bdd.run)
