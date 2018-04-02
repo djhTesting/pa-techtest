@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 		
 		glue = {"techtest.bdd.steps"}
 		
-		,tags = {"~@failTest"}
+		,tags = {"@failTest"}
 
 )
 

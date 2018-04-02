@@ -13,307 +13,290 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "line": 5,
-  "name": "Playlists songs are returned in Playlists list",
+  "comments": [
+    {
+      "line": 23,
+      "value": "# Fails as request with unknown id causes \"no http response\" error"
+    }
+  ],
+  "line": 25,
+  "name": "An request for an individual Playlist with a valid unknown Id fails correctly",
   "description": "",
-  "id": "playlists-tests;playlists-songs-are-returned-in-playlists-list",
+  "id": "playlists-tests;an-request-for-an-individual-playlist-with-a-valid-unknown-id-fails-correctly",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 24,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 6,
-  "name": "multiple Playlists exist in the Daily Songs database",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 7,
-  "name": "the list of Playlists is requested",
+  "line": 26,
+  "name": "a Playlist is requested with an unknown Id",
   "keyword": "When "
 });
 formatter.step({
-  "line": 8,
-  "name": "all the Playlists are returned in the list",
+  "line": 27,
+  "name": "a Http Status Code 404 is returned",
   "keyword": "Then "
 });
-formatter.match({
-  "location": "PlaylistSteps.multiplePlaylistsExistInTheDailySongsDatabase()"
-});
-formatter.result({
-  "duration": 911336389,
-  "status": "passed"
+formatter.step({
+  "line": 28,
+  "name": "no data is returned in the Json response",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "PlaylistSteps.theListOfPlaylistsIsRequested()"
+  "location": "PlaylistSteps.a_Playlist_is_requested_with_an_unknown_Id()"
 });
 formatter.result({
-  "duration": 135099703,
-  "status": "passed"
+  "duration": 4340551948,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execGet(FluentHandler.java:23)\r\n\tat techtest.bdd.steps.PlaylistSteps.requestPlaylistWithId(PlaylistSteps.java:90)\r\n\tat techtest.bdd.steps.PlaylistSteps.a_Playlist_is_requested_with_an_unknown_Id(PlaylistSteps.java:111)\r\n\tat ✽.When a Playlist is requested with an unknown Id(test/resources/cucumber/Playlists.feature:26)\r\n",
+  "status": "failed"
 });
 formatter.match({
-  "location": "PlaylistSteps.allThePlaylistsAreReturnedInTheList()"
+  "arguments": [
+    {
+      "val": "404",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
 });
 formatter.result({
-  "duration": 41432,
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.match({
+  "location": "ApiSteps.no_data_in_json()"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.scenario({
-  "line": 10,
-  "name": "An individual Playlist can be requested with an Id",
+  "comments": [
+    {
+      "line": 41,
+      "value": "# Delete works, but final verification step fails as request with unknown id causes \"no http response\" error"
+    }
+  ],
+  "line": 43,
+  "name": "An individual Playlist can be deleted",
   "description": "",
-  "id": "playlists-tests;an-individual-playlist-can-be-requested-with-an-id",
+  "id": "playlists-tests;an-individual-playlist-can-be-deleted",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 42,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 11,
+  "line": 44,
   "name": "a Playlist exists in the Daily Songs database with a known Id",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 12,
-  "name": "the Playlist is requested using the Id",
+  "line": 45,
+  "name": "the Playlist is deleted using the Id",
   "keyword": "When "
 });
 formatter.step({
-  "line": 13,
-  "name": "the details for the Playlist are returned",
+  "line": 46,
+  "name": "a Http Status Code 204 is returned",
   "keyword": "Then "
+});
+formatter.step({
+  "line": 47,
+  "name": "the Playlist is removed from Daily Songs",
+  "keyword": "And "
 });
 formatter.match({
   "location": "PlaylistSteps.aPlaylistExistsInTheDailySongsDatabaseWithKnownId()"
 });
 formatter.result({
-  "duration": 352128994,
+  "duration": 1840076616,
   "status": "passed"
 });
 formatter.match({
-  "location": "PlaylistSteps.a_playlists_is_requested_using_the_Id()"
+  "location": "PlaylistSteps.the_Playlist_is_deleted_using_the_Id()"
 });
 formatter.result({
-  "duration": 78545473,
+  "duration": 77735555,
   "status": "passed"
 });
 formatter.match({
-  "location": "PlaylistSteps.the_details_for_the_Playlist_are_returned()"
+  "arguments": [
+    {
+      "val": "204",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
 });
 formatter.result({
-  "duration": 3850891,
+  "duration": 4077100,
   "status": "passed"
+});
+formatter.match({
+  "location": "PlaylistSteps.the_Playlist_is_removed_from_Daily_Songs()"
+});
+formatter.result({
+  "duration": 3855329062,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execGet(FluentHandler.java:23)\r\n\tat techtest.bdd.steps.PlaylistSteps.requestPlaylistWithId(PlaylistSteps.java:90)\r\n\tat techtest.bdd.steps.PlaylistSteps.the_Playlist_is_removed_from_Daily_Songs(PlaylistSteps.java:212)\r\n\tat ✽.And the Playlist is removed from Daily Songs(test/resources/cucumber/Playlists.feature:47)\r\n",
+  "status": "failed"
 });
 formatter.scenario({
-  "line": 15,
-  "name": "Song details in Playlist are hidden where publishDate is in future",
+  "comments": [
+    {
+      "line": 49,
+      "value": "# Fails as request with unknown id causes \"no http response\" error"
+    }
+  ],
+  "line": 51,
+  "name": "A Playlist deletetion request with an unknown id is handled correctly",
   "description": "",
-  "id": "playlists-tests;song-details-in-playlist-are-hidden-where-publishdate-is-in-future",
+  "id": "playlists-tests;a-playlist-deletetion-request-with-an-unknown-id-is-handled-correctly",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 50,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 16,
-  "name": "a Playlist exists containing Songs with past and future publishDates",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
-  "name": "the Playlist is requested using the Id",
+  "line": 52,
+  "name": "a Playlist deletion is requested using an unknown Id",
   "keyword": "When "
 });
 formatter.step({
-  "line": 18,
-  "name": "the Song details are hidden for Songs with a future publishDate",
+  "line": 53,
+  "name": "a Http Status Code 204 is returned",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "PlaylistSteps.a_Playlist_exists_containing_Songs_where_the_publishDate_is_in_the_future()"
+  "location": "PlaylistSteps.a_Playlist_deletion_is_requested_using_an_unknown_Id()"
 });
 formatter.result({
-  "duration": 486605697,
-  "status": "passed"
+  "duration": 5160791184,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execDelete(FluentHandler.java:73)\r\n\tat techtest.bdd.steps.PlaylistSteps.deletePlaylistWithId(PlaylistSteps.java:206)\r\n\tat techtest.bdd.steps.PlaylistSteps.a_Playlist_deletion_is_requested_using_an_unknown_Id(PlaylistSteps.java:195)\r\n\tat ✽.When a Playlist deletion is requested using an unknown Id(test/resources/cucumber/Playlists.feature:52)\r\n",
+  "status": "failed"
 });
 formatter.match({
-  "location": "PlaylistSteps.a_playlists_is_requested_using_the_Id()"
+  "arguments": [
+    {
+      "val": "204",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
 });
 formatter.result({
-  "duration": 92324447,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_Song_details_are_hidden_for_Songs_with_a_future_publishDate()"
-});
-formatter.result({
-  "duration": 115751363,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
-  "line": 26,
-  "name": "An request for an individual Playlist with an invalid Id fails correctly",
+  "comments": [
+    {
+      "line": 55,
+      "value": "# Fails as request with invalid id causes \"no http response\" error"
+    }
+  ],
+  "line": 57,
+  "name": "A Playlist deletetion request with an invalid id is handled correctly",
   "description": "",
-  "id": "playlists-tests;an-request-for-an-individual-playlist-with-an-invalid-id-fails-correctly",
+  "id": "playlists-tests;a-playlist-deletetion-request-with-an-invalid-id-is-handled-correctly",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 56,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 27,
-  "name": "a Playlist is requested with an invalid Id",
+  "line": 58,
+  "name": "a Playlist deletion is requested using an invalid Id",
   "keyword": "When "
 });
 formatter.step({
-  "line": 28,
+  "line": 59,
+  "name": "a Http Status Code 500 is returned",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 60,
   "name": "an error message is returned for the invalid Id",
-  "keyword": "Then "
+  "keyword": "And "
 });
 formatter.match({
-  "location": "PlaylistSteps.a_Playlist_is_requested_with_an_invalid_Id()"
+  "location": "PlaylistSteps.a_Playlist_deletion_is_requested_using_an_invalid_Id()"
 });
 formatter.result({
-  "duration": 84236854,
-  "status": "passed"
+  "duration": 5147662433,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execDelete(FluentHandler.java:73)\r\n\tat techtest.bdd.steps.PlaylistSteps.deletePlaylistWithId(PlaylistSteps.java:206)\r\n\tat techtest.bdd.steps.PlaylistSteps.a_Playlist_deletion_is_requested_using_an_invalid_Id(PlaylistSteps.java:200)\r\n\tat ✽.When a Playlist deletion is requested using an invalid Id(test/resources/cucumber/Playlists.feature:58)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "500",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.match({
   "location": "ApiSteps.an_error_message_is_returned_for_the_invalid_id()"
 });
 formatter.result({
-  "duration": 154325,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
-  "line": 30,
-  "name": "A Playlist can be added to Daily Songs",
+  "comments": [
+    {
+      "line": 80,
+      "value": "# I am guessing that the version number should be updated in the Playlist when it is updated..."
+    }
+  ],
+  "line": 82,
+  "name": "The version number is updated when an existing Playlist is updated",
   "description": "",
-  "id": "playlists-tests;a-playlist-can-be-added-to-daily-songs",
+  "id": "playlists-tests;the-version-number-is-updated-when-an-existing-playlist-is-updated",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 81,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 31,
-  "name": "a Playlist is added to Daily Songs via the API",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 32,
-  "name": "the individual Playlist can be returned from the API",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 33,
-  "name": "the Playlist is returned in the Playlist list",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "PlaylistSteps.a_Playlist_is_added_to_Daily_Songs_via_the_API()"
-});
-formatter.result({
-  "duration": 111231100,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_individual_Playlist_can_be_returned_from_the_API()"
-});
-formatter.result({
-  "duration": 79284026,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_Playlist_is_returned_in_the_Playlist_list()"
-});
-formatter.result({
-  "duration": 192816309,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 55,
-  "name": "A specified number of songs can be added to a new Playlist",
-  "description": "",
-  "id": "playlists-tests;a-specified-number-of-songs-can-be-added-to-a-new-playlist",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 56,
+  "line": 83,
   "name": "at least 20 songs exist in the Daily Songs database",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 57,
-  "name": "5 Songs are added to a new Playlist",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 58,
-  "name": "a No Content message is returned",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 59,
-  "name": "the correct Songs are stored in the Playlist",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "20",
-      "offset": 9
-    }
-  ],
-  "location": "ApiSteps.at_least_songs_exist_in_the_Daily_Songs_database(int)"
-});
-formatter.result({
-  "duration": 129778548,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "5",
-      "offset": 0
-    }
-  ],
-  "location": "PlaylistSteps.songs_are_added_to_a_play_list(int)"
-});
-formatter.result({
-  "duration": 300867411,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_No_Content_message_is_returned()"
-});
-formatter.result({
-  "duration": 98069,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_correct_Songs_are_stored_in_the_Playlist()"
-});
-formatter.result({
-  "duration": 77228013,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 61,
-  "name": "A specified number of songs can be added to an existing Playlist",
-  "description": "",
-  "id": "playlists-tests;a-specified-number-of-songs-can-be-added-to-an-existing-playlist",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 62,
-  "name": "at least 20 songs exist in the Daily Songs database",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 63,
+  "line": 84,
   "name": "5 Songs are added to an existing Playlist",
   "keyword": "When "
 });
 formatter.step({
-  "line": 64,
-  "name": "a No Content message is returned",
+  "line": 85,
+  "name": "a Http Status Code 204 is returned",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 65,
-  "name": "the correct Songs are stored in the Playlist",
+  "line": 86,
+  "name": "the Playlist version number is updated",
   "keyword": "And "
 });
 formatter.match({
@@ -326,7 +309,7 @@ formatter.match({
   "location": "ApiSteps.at_least_songs_exist_in_the_Daily_Songs_database(int)"
 });
 formatter.result({
-  "duration": 117609718,
+  "duration": 1512714997,
   "status": "passed"
 });
 formatter.match({
@@ -339,158 +322,29 @@ formatter.match({
   "location": "PlaylistSteps.songs_are_added_to_an_existing_Playlist(int)"
 });
 formatter.result({
-  "duration": 528925202,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_No_Content_message_is_returned()"
-});
-formatter.result({
-  "duration": 77923,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_correct_Songs_are_stored_in_the_Playlist()"
-});
-formatter.result({
-  "duration": 94935039,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 67,
-  "name": "The functionality to remove Songs from a Playlist is not implemented",
-  "description": "",
-  "id": "playlists-tests;the-functionality-to-remove-songs-from-a-playlist-is-not-implemented",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 68,
-  "name": "at least 20 songs exist in the Daily Songs database",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 69,
-  "name": "5 Songs are added to a new Playlist and a Song removal is requested",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 70,
-  "name": "a Not Implemented message is returned",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 71,
-  "name": "the correct Songs are stored in the Playlist",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "20",
-      "offset": 9
-    }
-  ],
-  "location": "ApiSteps.at_least_songs_exist_in_the_Daily_Songs_database(int)"
-});
-formatter.result({
-  "duration": 210402841,
+  "duration": 703700142,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "5",
-      "offset": 0
+      "val": "204",
+      "offset": 19
     }
   ],
-  "location": "PlaylistSteps.songs_are_added_to_a_new_Playlist_and_a_Song_removal_is_requested(int)"
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
 });
 formatter.result({
-  "duration": 329851910,
+  "duration": 78684,
   "status": "passed"
 });
 formatter.match({
-  "location": "ApiSteps.a_Not_Implemented_message_is_returned()"
+  "location": "PlaylistSteps.the_Playlist_version_number_is_updated()"
 });
 formatter.result({
-  "duration": 84005,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.the_correct_Songs_are_stored_in_the_Playlist()"
-});
-formatter.result({
-  "duration": 102705620,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 81,
-  "name": "A Playlist is updated with an invalid command",
-  "description": "",
-  "id": "playlists-tests;a-playlist-is-updated-with-an-invalid-command",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 82,
-  "name": "at least 20 songs exist in the Daily Songs database",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 83,
-  "name": "5 Songs are added to a new Playlist and a invalid command is included",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 84,
-  "name": "a Bad Content message is returned",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 85,
-  "name": "no Songs are stored in the Playlist",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "20",
-      "offset": 9
-    }
-  ],
-  "location": "ApiSteps.at_least_songs_exist_in_the_Daily_Songs_database(int)"
-});
-formatter.result({
-  "duration": 211552672,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "5",
-      "offset": 0
-    }
-  ],
-  "location": "PlaylistSteps.invalid_command_included(int)"
-});
-formatter.result({
-  "duration": 427998114,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_Bad_Content_message_is_returned()"
-});
-formatter.result({
-  "duration": 93887,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PlaylistSteps.no_Songs_are_stored_in_the_Playlist()"
-});
-formatter.result({
-  "duration": 76374286,
-  "status": "passed"
+  "duration": 86447764,
+  "error_message": "org.junit.ComparisonFailure: Version number not updated in Playlist expected:\u003c[1]\u003e but was:\u003c[0]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat techtest.bdd.steps.PlaylistSteps.the_Playlist_version_number_is_updated(PlaylistSteps.java:341)\r\n\tat ✽.And the Playlist version number is updated(test/resources/cucumber/Playlists.feature:86)\r\n",
+  "status": "failed"
 });
 formatter.uri("test/resources/cucumber/Songs.feature");
 formatter.feature({
@@ -507,287 +361,159 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "line": 7,
-  "name": "All songs are returned in Songs list",
+  "line": 20,
+  "name": "An request for an individual song with a valid unknown Id fails correctly",
   "description": "",
-  "id": "songs-tests;all-songs-are-returned-in-songs-list",
+  "id": "songs-tests;an-request-for-an-individual-song-with-a-valid-unknown-id-fails-correctly",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 19,
+      "name": "@failTest"
+    }
+  ]
 });
 formatter.step({
-  "line": 8,
-  "name": "multiple songs exist in the Daily Songs database",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 9,
-  "name": "the list of Songs is requested",
+  "line": 21,
+  "name": "a song is requested with an unknown Id",
   "keyword": "When "
 });
 formatter.step({
-  "line": 10,
-  "name": "all the Songs are returned in the list",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ApiSteps.multipleSongsExistInTheDailySongsDatabase()"
-});
-formatter.result({
-  "duration": 265307395,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.theListOfSongsIsRequested()"
-});
-formatter.result({
-  "duration": 258487087,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.allTheSongsAreReturnedInTheList()"
-});
-formatter.result({
-  "duration": 83624,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 12,
-  "name": "An individual song can be requested with an Id",
-  "description": "",
-  "id": "songs-tests;an-individual-song-can-be-requested-with-an-id",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 13,
-  "name": "a song exists in the Daily Songs database with a known Id",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 14,
-  "name": "a song is requested using the Id",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 15,
-  "name": "the details for the Song are returned",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ApiSteps.aSongExistsInTheDailySongsDatabaseWithKnownSongId()"
-});
-formatter.result({
-  "duration": 596867897,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_song_is_requested_using_the_Id()"
-});
-formatter.result({
-  "duration": 58638751,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.the_details_for_the_Song_are_returned()"
-});
-formatter.result({
-  "duration": 1644734,
-  "status": "passed"
-});
-formatter.scenario({
   "line": 22,
-  "name": "An request for an individual song with an invalid Id fails correctly",
-  "description": "",
-  "id": "songs-tests;an-request-for-an-individual-song-with-an-invalid-id-fails-correctly",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 23,
-  "name": "a song is requested with an invalid Id",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 24,
-  "name": "an error message is returned for the invalid Id",
+  "name": "a Http Status Code 404 is returned",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "ApiSteps.a_song_is_requested_with_an_invalid_Id()"
+  "location": "ApiSteps.a_song_is_requested_with_an_unknown_Id()"
 });
 formatter.result({
-  "duration": 83610814,
+  "duration": 59367696,
   "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "404",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
+});
+formatter.result({
+  "duration": 255437,
+  "error_message": "java.lang.AssertionError: Expected return Http Status Code 404 expected:\u003c404\u003e but was:\u003c200\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\r\n\tat org.junit.Assert.assertEquals(Assert.java:645)\r\n\tat techtest.bdd.steps.ApiSteps.a_Http_Status_Code_is_returned(ApiSteps.java:297)\r\n\tat ✽.Then a Http Status Code 404 is returned(test/resources/cucumber/Songs.feature:22)\r\n",
+  "status": "failed"
+});
+formatter.scenario({
+  "comments": [
+    {
+      "line": 51,
+      "value": "# Fails as request with unknown id causes \"no http response\" error"
+    }
+  ],
+  "line": 53,
+  "name": "An song deletetion request with an unknown id is handled correctly",
+  "description": "",
+  "id": "songs-tests;an-song-deletetion-request-with-an-unknown-id-is-handled-correctly",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 52,
+      "name": "@failTest"
+    }
+  ]
+});
+formatter.step({
+  "line": 54,
+  "name": "a song deletion is requested using an unknown Id",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 55,
+  "name": "a Http Status Code 204 is returned",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ApiSteps.a_song_deletion_is_requested_using_an_unknown_Id()"
+});
+formatter.result({
+  "duration": 3813727127,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execDelete(FluentHandler.java:73)\r\n\tat techtest.bdd.steps.ApiSteps.deleteSongWithId(ApiSteps.java:284)\r\n\tat techtest.bdd.steps.ApiSteps.a_song_deletion_is_requested_using_an_unknown_Id(ApiSteps.java:273)\r\n\tat ✽.When a song deletion is requested using an unknown Id(test/resources/cucumber/Songs.feature:54)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "204",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.scenario({
+  "comments": [
+    {
+      "line": 57,
+      "value": "# Fails as request with invalid id causes \"no http response\" error"
+    }
+  ],
+  "line": 59,
+  "name": "An song deletetion request with an invalid id is handled correctly",
+  "description": "",
+  "id": "songs-tests;an-song-deletetion-request-with-an-invalid-id-is-handled-correctly",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 58,
+      "name": "@failTest"
+    }
+  ]
+});
+formatter.step({
+  "line": 60,
+  "name": "a song deletion is requested using an invalid Id",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 61,
+  "name": "a Http Status Code 200 is returned",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 62,
+  "name": "an error message is returned for the invalid Id",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "ApiSteps.a_song_deletion_is_requested_using_an_invalid_Id()"
+});
+formatter.result({
+  "duration": 4967182494,
+  "error_message": "java.lang.AssertionError: turing.niallbunting.com:3005 failed to respond\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat techtest.bdd.shared.FluentHandler.execDelete(FluentHandler.java:73)\r\n\tat techtest.bdd.steps.ApiSteps.deleteSongWithId(ApiSteps.java:284)\r\n\tat techtest.bdd.steps.ApiSteps.a_song_deletion_is_requested_using_an_invalid_Id(ApiSteps.java:278)\r\n\tat ✽.When a song deletion is requested using an invalid Id(test/resources/cucumber/Songs.feature:60)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "200",
+      "offset": 19
+    }
+  ],
+  "location": "ApiSteps.a_Http_Status_Code_is_returned(int)"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.match({
   "location": "ApiSteps.an_error_message_is_returned_for_the_invalid_id()"
 });
 formatter.result({
-  "duration": 61957,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 26,
-  "name": "A Song can be added to Daily Songs",
-  "description": "",
-  "id": "songs-tests;a-song-can-be-added-to-daily-songs",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 27,
-  "name": "a song is added to Daily Songs via the API",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 28,
-  "name": "the individual Song can be returned from the API",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 29,
-  "name": "the Song is returned in the Song list",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ApiSteps.a_song_is_added_to_Daily_Songs_via_the_API()"
-});
-formatter.result({
-  "duration": 90790324,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.the_individual_Song_can_be_returned_from_the_API()"
-});
-formatter.result({
-  "duration": 62916505,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.the_Song_is_returned_in_the_Song_list()"
-});
-formatter.result({
-  "duration": 245719966,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 31,
-  "name": "A Song cannot be added to Daily Songs with invalid data",
-  "description": "",
-  "id": "songs-tests;a-song-cannot-be-added-to-daily-songs-with-invalid-data",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 32,
-  "name": "a song is added to Daily Songs via the API with invalid data",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 33,
-  "name": "an error message is returned for the invalid data",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ApiSteps.a_song_is_added_to_Daily_Songs_via_the_API_with_invalid_data()"
-});
-formatter.result({
-  "duration": 78877688,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.an_error_message_is_returned_for_the_invalid_data()"
-});
-formatter.result({
-  "duration": 84385,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 35,
-  "name": "The functionality to update a Song is not implemented",
-  "description": "",
-  "id": "songs-tests;the-functionality-to-update-a-song-is-not-implemented",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 36,
-  "name": "a Song is updated",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 37,
-  "name": "a Not Implemented message is returned",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ApiSteps.a_Song_is_updated()"
-});
-formatter.result({
-  "duration": 81865730,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_Not_Implemented_message_is_returned()"
-});
-formatter.result({
-  "duration": 73361,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 39,
-  "name": "An individual song can be deleted",
-  "description": "",
-  "id": "songs-tests;an-individual-song-can-be-deleted",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 40,
-  "name": "a song exists in the Daily Songs database with a known Id",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 41,
-  "name": "the song is deleted using the Id",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 42,
-  "name": "a No Content message is returned",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 43,
-  "name": "the song is removed from Daily Songs",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ApiSteps.aSongExistsInTheDailySongsDatabaseWithKnownSongId()"
-});
-formatter.result({
-  "duration": 436290966,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.the_song_is_deleted_using_the_Id()"
-});
-formatter.result({
-  "duration": 100953695,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.a_No_Content_message_is_returned()"
-});
-formatter.result({
-  "duration": 34590,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ApiSteps.the_song_is_removed_from_Daily_Songs()"
-});
-formatter.result({
-  "duration": 69760759,
-  "status": "passed"
+  "status": "skipped"
 });
 });

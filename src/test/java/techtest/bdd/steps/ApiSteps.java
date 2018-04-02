@@ -89,9 +89,7 @@ public class ApiSteps {
 
 	@Then("^the details for the Song are returned$")
 	public void the_details_for_the_Song_are_returned() throws Throwable {
-		
-		org.junit.Assert.assertEquals("Get song by Id should return http status code 200 for id "+sharedObjects.getKnownSongId(),
-				200, sharedObjects.getAppResponse().getHttpStatus());
+
 		
 		Video video = new Video(sharedObjects.getAppResponse().getJsonBody());
 		
@@ -108,13 +106,13 @@ public class ApiSteps {
 	public void a_song_is_requested_with_an_invalid_Id() throws Throwable {
 	    requestSongWithId("xxxxx");
 	}
-
-	@Then("^a Resource not Found error is returned$")
-	public void a_Resource_not_Found_error_is_returned() throws Throwable {
+	
+	@Then("^no data is returned in the Json response$")
+	public void no_data_in_json() throws Throwable {
 		Assert.assertEquals("",sharedObjects.getAppResponse().getJsonBody());
-		org.junit.Assert.assertEquals("Request for unknown resource should return Http Status Code 404",
-				404, sharedObjects.getAppResponse().getHttpStatus());
 	}
+
+
 	
 	private void sendHttpReqAddSong(Video video) {
 		
@@ -153,8 +151,8 @@ public class ApiSteps {
 		
 		
 		AppResponse appResponse = new FluentHandler().execGet("video/");
+		sharedObjects.setAppResponse(appResponse);
 		
-		Assert.assertEquals(200, appResponse.getHttpStatus());
 		String jsonString = appResponse.getJsonBody();
 		
 		
@@ -172,8 +170,7 @@ public class ApiSteps {
 		addSong(null);
 		sharedObjects.setKnownSongId(sharedObjects.getVideo().get_id());
 			
-		org.junit.Assert.assertEquals("Adding a Song by Id should return http status code 201",
-				201, sharedObjects.getAppResponse().getHttpStatus());
+
 		
 		Video video = new Video(sharedObjects.getAppResponse().getJsonBody());
 		
@@ -232,13 +229,11 @@ public class ApiSteps {
 	@Then("^an error message is returned for the invalid data$")
 	public void an_error_message_is_returned_for_the_invalid_data() throws Throwable {
 		Assert.assertTrue(sharedObjects.getAppResponse().getJsonBody().contains("Cast to Date failed for value"));
-		Assert.assertEquals(500,sharedObjects.getAppResponse().getHttpStatus());
 	}
 	
 	@Then("^an error message is returned for the invalid Id$")
 	public void an_error_message_is_returned_for_the_invalid_id() throws Throwable {
 		Assert.assertTrue(sharedObjects.getAppResponse().getJsonBody().contains("Cast to ObjectId failed for value"));
-		Assert.assertEquals(500,sharedObjects.getAppResponse().getHttpStatus());
 	}
 
 	@When("^a Song is updated$")
@@ -261,7 +256,6 @@ public class ApiSteps {
 
 	@Then("^a Not Implemented message is returned$")
 	public void a_Not_Implemented_message_is_returned() throws Throwable {
-		Assert.assertEquals(501,sharedObjects.getAppResponse().getHttpStatus());
 		Assert.assertTrue(sharedObjects.getAppResponse().getJsonBody().contains("Not implemented"));
 	}
 	
@@ -298,15 +292,12 @@ public class ApiSteps {
 				"null", sharedObjects.getAppResponse().getJsonBody());
 	}
 
-	@Then("^a No Content message is returned$")
-	public void a_No_Content_message_is_returned() throws Throwable {
-		org.junit.Assert.assertEquals("Expected return Http Status Code 204",
-				204, sharedObjects.getAppResponse().getHttpStatus());
+	@Then("^a Http Status Code (\\d+) is returned$")
+	public void a_Http_Status_Code_is_returned(int expectedCode) throws Throwable {
+		org.junit.Assert.assertEquals("Expected return Http Status Code "+expectedCode,
+				expectedCode, sharedObjects.getAppResponse().getHttpStatus());
 	}
 	
-	@Then("^a Bad Content message is returned$")
-	public void a_Bad_Content_message_is_returned() throws Throwable {
-		org.junit.Assert.assertEquals("Expected return Http Status Code 400",
-				400, sharedObjects.getAppResponse().getHttpStatus());
-	}
+	
+
 }

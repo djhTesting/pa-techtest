@@ -94,9 +94,7 @@ public class PlaylistSteps {
 	@Then("^the details for the Playlist are returned$")
 	public void the_details_for_the_Playlist_are_returned() throws Throwable {
 		
-		org.junit.Assert.assertEquals("Get Playlist by Id should return http status code 200 for id "+sharedObjects.getKnownPlaylistId(),
-				200, sharedObjects.getAppResponse().getHttpStatus());
-		
+
 		// Could check the actual details here, but this would be done nicer
 		// in the Post new Playlist tests, so just check an actual Playlist has 
 		// been returned...
@@ -122,7 +120,7 @@ public class PlaylistSteps {
 		String url = "playlist/";
 		
 		AppResponse appResponse = new FluentHandler().execGet(url);
-		Assert.assertEquals(200, appResponse.getHttpStatus());
+		sharedObjects.setAppResponse(appResponse);
 		
 		List<Playlist> playlists = Playlist.playlistListFromJson(appResponse.getJsonBody());
 	
@@ -134,10 +132,7 @@ public class PlaylistSteps {
 	public void a_Playlist_is_added_to_Daily_Songs_via_the_API() throws Throwable {
 		addPlaylist();
 		sharedObjects.setKnownPlaylistId(sharedObjects.getPlaylist().get_id());
-		
-	
-		org.junit.Assert.assertEquals("Adding a Playlist by Id should return http status code 201",
-				201, sharedObjects.getAppResponse().getHttpStatus());
+
 		
 		Playlist playlist = new Playlist(sharedObjects.getAppResponse().getJsonBody());
 		
